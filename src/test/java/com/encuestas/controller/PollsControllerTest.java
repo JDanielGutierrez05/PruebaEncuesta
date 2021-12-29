@@ -1,7 +1,7 @@
 package com.encuestas.controller;
 
 import com.encuestas.model.PollModel;
-import com.encuestas.service.PollServices;
+import com.encuestas.service.PollServicesImp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -21,18 +20,18 @@ import java.util.List;
 class PollsControllerTest {
 
     @Mock
-    PollServices pollServices;
+    PollServicesImp pollServicesImp;
 
     List<PollModel> poll;
 
     @BeforeEach
     void setUp() {
         poll = List.of(PollModel.builder().question("test").questionId(1).build());
-        Mockito.when(pollServices.getQuestions()).thenReturn(poll);
+        Mockito.when(pollServicesImp.getQuestions()).thenReturn(poll);
     }
 
     @Test
     void getPoll() {
-        Assertions.assertEquals(pollServices.getQuestions(), poll);
+        Assertions.assertEquals(pollServicesImp.getQuestions(), poll);
     }
 }
