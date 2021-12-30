@@ -4,13 +4,11 @@ import com.encuestas.dto.PollAnswerDTO;
 import com.encuestas.model.PollAnswerModel;
 import com.encuestas.model.PollModel;
 import com.encuestas.service.PollServicesImp;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Slf4j
 @RestController
 @RequestMapping("polls")
 public class PollsController {
