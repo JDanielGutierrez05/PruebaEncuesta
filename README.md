@@ -1,4 +1,4 @@
-# Prueba Encuesta Robinfood
+#Prueba Encuesta Robinfood
 
 La BD se monto en Memoria por medio de h2.
 
@@ -9,7 +9,7 @@ La BD se monto en Memoria por medio de h2.
 - Password: test
 ```
 
-# Creacion de BD
+#Creacion de BD
 Como la BD es en memoria, se genera script para que al subir la instancia de Java se ejecute el script y cree la respectiva BD, adicional se desactiva esta opcion para JPA.
 el script esta en la ruta
 
@@ -22,7 +22,7 @@ Adicional tambien luego de crear la BD insertamos algunos datos en BD para tener
 src/main/resources/data.sql
 ```
 
-# Servicios
+#Servicios
 los servicios expuestos son:
 
 ```
@@ -30,9 +30,24 @@ GET -> localhost:8080/polls/
 POST -> localhost:8080/polls/
 ```
 
-# Diagrama entidad relacion
+#Diagrama entidad relacion
 esta en la ruta 
 
 ```
 docs/Diagrama entidad Relacion.png
+```
+
+#Pruebas unitarias y cobertura
+Las pruebas se deben de correr con el comando 
+```
+gradle test
+```
+o si se desea correr el comando 
+```
+gradle test jacocoTestReport
+```
+
+para ejecutar las pruebas y generar el archivo de coverage el cual se encuentra en la ruta
+```
+build/reports/jacoco/test/html/index.html
 ```
