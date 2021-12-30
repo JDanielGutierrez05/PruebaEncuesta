@@ -17,6 +17,9 @@ public class PollAnswerModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name="question_id")
     private int questionId;
+
     private String answer;
 }

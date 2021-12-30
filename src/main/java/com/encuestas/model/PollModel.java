@@ -2,10 +2,7 @@ package com.encuestas.model;
 
 import lombok.*;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @AllArgsConstructor
@@ -16,9 +13,13 @@ import java.util.List;
 @Table(name = "poll_questions")
 public class PollModel {
     @Id
+    @Column(name="question_id")
     private int questionId;
+
     private String question;
+
     private boolean multipleAnswers;
+
     @ElementCollection
     private List<String> answers;
 }
