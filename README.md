@@ -27,7 +27,22 @@ los servicios expuestos son:
 
 ```
 GET -> localhost:8080/polls/
+```
+```
 POST -> localhost:8080/polls/
+
+para este servicio se debe enviar el body de la siguiente forma:
+
+[
+    {
+        "questionId": 1,
+        "answer": "Bueno"
+    },
+    {
+        "questionId": 2,
+        "answer": "Comentario de prueba"
+    }
+]
 ```
 
 #Diagrama entidad relacion

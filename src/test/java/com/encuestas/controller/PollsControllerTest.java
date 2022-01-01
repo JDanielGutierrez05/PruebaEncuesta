@@ -2,22 +2,18 @@ package com.encuestas.controller;
 
 import com.encuestas.dto.PollAnswerDTO;
 import com.encuestas.service.PollServicesImp;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-@ExtendWith(MockitoExtension.class)
-@RunWith(JUnitPlatform.class)
-class PollsControllerTest {
+@RunWith(MockitoJUnitRunner.class)
+public class PollsControllerTest {
 
     @Mock
     PollServicesImp pollServicesImp;
@@ -27,18 +23,18 @@ class PollsControllerTest {
 
     PollsController pollsController;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         pollsController = new PollsController(pollServicesImp);
     }
 
     @Test
-    void getPoll() {
-        Assertions.assertEquals(pollsController.getPoll(), new ArrayList<>());
+    public void getPoll() {
+        Assert.assertEquals(pollsController.getPoll(), new ArrayList<>());;
     }
 
     @Test
-    void savePollAnswers() {
-        Assertions.assertInstanceOf(ArrayList.class, pollsController.savePollAnswers(pollAnswerDTO));
+    public void savePollAnswers() {
+        Assert.assertNotNull(pollsController.savePollAnswers(pollAnswerDTO));
     }
 }

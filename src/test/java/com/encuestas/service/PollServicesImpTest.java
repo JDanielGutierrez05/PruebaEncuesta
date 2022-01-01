@@ -14,6 +14,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PollServicesImpTest {
@@ -32,16 +35,16 @@ public class PollServicesImpTest {
     @Before
     public void setUp() {
         pollServicesImp = new PollServicesImp(pollRepository, pollAnswersRepository);
-        Mockito.when(pollRepository.findAll()).thenReturn(pollModels);
     }
 
     @Test
     public void getQuestions() {
-        Assert.assertEquals(pollModels, pollServicesImp.getQuestions());
+        Mockito.when(pollRepository.findAll()).thenReturn(pollModels);
+        assertEquals(pollModels, pollServicesImp.getQuestions());
     }
 
     @Test
-    public void savePollAnswers() {
+    public void savePollAnswersSucessful() {
         Assert.assertNotNull(pollServicesImp.savePollAnswers(List.of(PollAnswerDTO.builder().answer("test").questionId(1).build())));
     }
 }
